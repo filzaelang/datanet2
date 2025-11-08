@@ -6,7 +6,7 @@ type FieldType = {
   confirmPassword: string;
 };
 
-function RegisterForm() {
+const RegisterForm : React.FC = () => {
   const [formData, setFormData] = useState<FieldType>({
     username: "",
     password: "",

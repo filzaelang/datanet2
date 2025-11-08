@@ -6,7 +6,7 @@ type FieldType = {
   remember: boolean;
 };
 
-function LoginForm() {
+const LoginForm : React.FC = () => {
   const [formData, setFormData] = useState<FieldType>({
     username: "",
     password: "",
