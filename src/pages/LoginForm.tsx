@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 type FieldType = {
   username: string;
@@ -12,6 +13,8 @@ const LoginForm : React.FC = () => {
     password: "",
     remember: false,
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -32,6 +35,7 @@ const LoginForm : React.FC = () => {
       return;
     }
     console.log("Success:", formData);
+    navigate('/')
   };
 
   return (
@@ -97,6 +101,7 @@ const LoginForm : React.FC = () => {
 
           {/* Submit Button */}
           <button
+            onClick={onSubmit}
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-150"
           >

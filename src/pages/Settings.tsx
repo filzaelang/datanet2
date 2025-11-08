@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface PersonalInfo {
   fullName: string;
@@ -23,6 +24,8 @@ const Settings: React.FC = () => {
     email: 'john.doe@email.com',
     phone: '+1 (555) 123-4567',
   });
+
+  const navigate = useNavigate();
 
   const [privacy, setPrivacy] = useState<PrivacyPreferences>({
     shareData: true,
@@ -224,6 +227,15 @@ const Settings: React.FC = () => {
             className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Save Changes
+          </button>
+        </div>
+
+        {/* Logout Button */}
+        <div className='flex justify-end mt-5'>
+          <button
+            onClick={() => navigate('/login')} 
+            className="px-6 py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+            Logout
           </button>
         </div>
       </form>
